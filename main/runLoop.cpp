@@ -26,8 +26,11 @@ debugChoice:
     goto debugChoice;
   } else if(debugChoicerunLoop == 'y'){
     int i = jsonLineCount;
+    cout << i << endl;
     while(i != 0){
       cout << jsonString[i] << endl;
+      i--;
     }
+    cout << endl << "weatherData.json is displaying backwards!" << endl << endl;
   }
 }

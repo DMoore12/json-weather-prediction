@@ -26,7 +26,7 @@ int main() {
 
     case 2:
       runLoop();
-      goto terminalLoop;
+      break;
 
     case 3:
       std::cout << "Incorrect value entered!" << std::endl;
