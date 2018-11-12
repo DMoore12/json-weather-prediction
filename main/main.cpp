@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include <cstddef>
-//Global variable defs, hopefully none
 
-//Prototypes
+#include "jsonImport.h"
+
+//Prototypes. Will hopefully end up as .h files
 int terminal();
 void runLoop();
 void help();
@@ -25,7 +26,7 @@ int main() {
 
     case 2:
       runLoop();
-      goto terminalLoop;
+      break;
 
     case 3:
       std::cout << "Incorrect value entered!" << std::endl;
