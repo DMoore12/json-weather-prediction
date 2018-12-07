@@ -9,13 +9,11 @@ int terminal() {
   //Variable defs
   string input;
 
-  cout << "Type 'help' for help. " << endl << "Type 'quit' to quit. " << endl << "Type 'run' to run the JSON updater" << endl;
+  cout << "Type 'quit' to quit. " << endl << "Type 'run' to run the JSON updater" << endl;
   cin >> input;
   //Check what the input is and allow for some error in typing and return a value to tell main() what to call
   if(input == "quit" || input == " quit" || input == "quit "){
     return 0;
-  } else if(input == "help" || input == " help" || input == "help "){
-    return 1;
   } else if(input == "run" || input == " run" || input == "run "){
     return 2;
   } else {

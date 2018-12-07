@@ -23,7 +23,7 @@ int inTextLoad() {
       }
   while(!txt.eof()){
     getline (txt, jsonString[i]);
-    i++;
+    ++i;
   }
   jsonLineCount = i;
   txt.close();
