@@ -3,6 +3,7 @@
 #include <cstddef>
 
 #include "jsonImport.h"
+#include "jsonParse.h"
 
 //Prototypes. Will hopefully end up as .h files
 int terminal();

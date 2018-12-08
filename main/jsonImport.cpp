@@ -9,7 +9,7 @@ using namespace std;
   string jsonString[169];
   int jsonLineCount;
 
-int inTextLoad() {
+void inTextLoad() {
 
   int i = 0;
 
@@ -19,7 +19,7 @@ int inTextLoad() {
     if(!txt)
       {
         cout << "Could not load the file!" << endl;
-        return 0;
+        return;
       }
   while(!txt.eof()){
     getline (txt, jsonString[i]);
@@ -28,5 +28,5 @@ int inTextLoad() {
   jsonLineCount = i;
   txt.close();
 
-  return 0;
+  return;
 }
