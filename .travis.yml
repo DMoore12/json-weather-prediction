@@ -6,3 +6,9 @@ script:
   - make
   - cd main
   - ./jsonWeatherPrediction
+notifications:
+  email:
+    recipients:
+      - moore800@purdue.edu
+    on_success: change
+    on_failure: always
