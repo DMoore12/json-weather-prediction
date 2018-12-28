@@ -2,35 +2,19 @@
 #include <string>
 
 #include "jsonImport.h"
+#include "jsonParse.h"
 
 using namespace std;
 
-string path = "/";
-
-int inTextLoad();
+string stringToSend;
+int dataPointCount;
+int stationCount;
 
 void runLoop() {
-  cout << "RUNNING. . ." << endl;
   inTextLoad();
-
-  //Create a char for the input and set the standard to do nothing if the user skips the inpt.
-  char debugChoicerunLoop = 'n';
-
-debugChoice:
-
-  //See if the user would like to visually confirm the loading of the data... Good for debugging!
-  cout << "Would you like to see the contents of 'weatherData.json? (y/n)'" << endl;
-  cin >> debugChoicerunLoop;
-  if (cin.fail()){
-    cout << "Incorrect choice!" << endl;
-    goto debugChoice;
-  } else if(debugChoicerunLoop == 'y'){
-    int i = jsonLineCount;
-    cout << i << endl;
-    while(i != 0){
-      cout << jsonString[i] << endl;
-      i--;
-    }
-    cout << endl << "weatherData.json is displaying backwards!" << endl << endl;
+  for (size_t i = 0; i <= jsonLineCount; i++) {
+    stringToSend = jsonString[i];
+    dataPointCount = dataPointCount + featureCount('{', stringToSend);
   }
+  cout << "There are " << dataPointCount << " data points!" << endl;
 }

@@ -6,6 +6,6 @@
 extern std::string jsonString[169];
 extern int jsonLineCount;
 
-int inTextLoad();
+void inTextLoad();
 
 #endif

@@ -9,8 +9,9 @@
 
 - [x] Project is buildable
 - [x] Project can read .json files
+- [ ] Project can parse .json files for use
 - [ ] Project works as advertised
 - [ ] Setup Travis
 - [ ] Documentation provided
 
-json-weather-prediction is an application that will intake a .json file and output probability of a thunderstorm based on the data inside. It will be designed for use on a Raspberry Pi terminal, but will hopefully be available for more than just this use. It's initial production was designed for use with the [HyperStation](https://github.com/russelltg/weatherstation).
+json-weather-prediction is an application that will intake a .json file and output probability of a thunderstorm based on the data inside. It will be designed for use on a Raspberry Pi terminal, but will hopefully be available for more than just this use. It's initial production was designed for use with the [HyperStation](https://github.com/russelltg/weatherstation). However, this project does not actually save .json files, so future implementation might shift away from reading .json files. 
