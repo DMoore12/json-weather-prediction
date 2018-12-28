@@ -1,6 +1,12 @@
 #include <string>
+#include <sstream>
+
+//REMOVE
+#include <iostream>
+
 #include "jsonImport.h"
 #include "jsonParse.h"
+
 
 /*
 What we have:
@@ -19,14 +25,16 @@ From here, we can determine whether or not there is a storm coming by running de
 */
 
 //Variable declarations from jsonParse.h for use in other .cpp files
+float wind[101];
 float temp[101];
 float humidity[101];
-float wind[101];
+int dataSlot;
 
 //Count how many of a feature (character) there are in a string
 int featureCount(char featureToCount, std::string stringToCount) {
   int stringToCountLength = stringToCount.length();
   int returnValue = 0;
+  dataSlot = 0;
   for(size_t i = 0; i <= stringToCountLength; i++) {
     if(stringToCount[i] == featureToCount) {
       ++returnValue;
@@ -36,19 +44,40 @@ int featureCount(char featureToCount, std::string stringToCount) {
 }
 
 //Parse the data points to see how many of each there are
-int jsonCountParse(std::string dataType, std::string stringToParse) {
+int jsonCountAndParse(std::string dataType, std::string stringToParse) {
   std::string parsedDataType;
+  std::string dataToSave;
   int returnCount = 0;
-  for (size_t i = 12; i < 12 + dataType.length(); i++) {
+  int pos;
+  for(size_t i = 12; i < 12 + dataType.length(); i++) {
     parsedDataType.push_back(stringToParse[i]);
+    pos = i;
   }
   if(parsedDataType == dataType) {
     returnCount++;
+    pos = pos + 16;
+
+//Logic for finding dtaa...
+  int findPos = stringToParse.find('}', pos);
+
+  std::cout << "DATA TYPE: " << dataType << std::endl;
+
+  while(pos != findPos) {
+    dataToSave.push_back(stringToParse[pos]);
+    pos++;
+
+    std::cout << "DEBUG STRING: " << dataToSave << std::endl;
+
+  }
+
+    std::stringstream convert(dataToSave);
+    if(dataType == "wind") {
+      convert >> wind[dataSlot];
+    } else if(dataType == "temp") {
+      convert >> temp[dataSlot];
+    } else {
+      convert >> humidity[dataSlot];
+    }
   }
   return returnCount;
-}
-
-
-void jsonDataParse() {
-
 }

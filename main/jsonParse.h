@@ -12,12 +12,12 @@ variables named the same as the data types in the .json file for easy use!
 #include <string>
 
 //extern variable declarations
+extern float wind[101];
 extern float temp[101];
 extern float humidity[101];
-extern float wind[101];
+extern int dataSlot;
 
 int featureCount(char featureToCount, std::string stringToCount);
-int jsonCountParse(std::string dataType, std::string stringToParse);
-void jsonDataParse();
+int jsonCountAndParse(std::string dataType, std::string stringToParse);
 
 #endif

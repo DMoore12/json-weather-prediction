@@ -8,8 +8,8 @@
 **Project Timeline:**
 
 - [x] Project is buildable
-- [ ] Project can read .json files
-- [ ] Project can parse .json files for use
+- [x] Project can load .json files
+- [x] Project can parse .json files for use
 - [ ] Project works as advertised
 - [ ] Setup Travis
 - [ ] Documentation provided
