@@ -7,7 +7,7 @@
 using namespace std;
 
   //This string is set to the exact line count of weatherData.json... Remember, arrrays start at 0!
-  string jsonString[169];
+  string jsonString[101];
   int jsonLineCount;
   ifstream jsonTxt;
 
