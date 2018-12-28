@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <unistd.h>
 #include "jsonImport.h"
 
 using namespace std;
@@ -16,9 +17,14 @@ void inTextLoad() {
 
   int i = 0;
 
-  string filePath = "weatherData.json";
-
-  jsonTxt.open(filePath);
+  //The executable is in '//Users//dawsonmoore//Documents//Coding//json-weather-prediction//main//'
+  //We must go up one!
+  char buf[255];
+  string toAdd;
+  getcwd(buf, sizeof(buf));
+  toAdd = buf;
+  cout << "The CWD is " << buf << endl;
+  jsonTxt.open("weatherData.json");
     if(!jsonTxt)
       {
         cout << "Could not load the file!" << endl;
