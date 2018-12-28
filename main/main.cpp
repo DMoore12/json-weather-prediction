@@ -1,16 +1,15 @@
-#include <iostream>
-#include <string>
-#include <cstddef>
-
 //Prototypes
 void runLoop();
+void predictThunderstorm();
 
 //Functions for calling
 
 //Main Function
 int main() {
 
-runLoop();
-
+//while(1) {
+  runLoop();
+  predictThunderstorm();
+//  }
   return 0;
 }

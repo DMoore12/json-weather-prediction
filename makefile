@@ -1,11 +1,11 @@
 CXX = g++
 CXXFLAGS = -Wall -g
 CLEAN = main/jsonWeatherPrediction
-all: cleanall jsonWeatherPrediction cleano
+all: cleanall jsonWeatherPrediction cleanout
 cleanall:
 	-rm -f $(CLEAN) main/*.o
 
-cleano:
+cleanout:
 	-rm -f main/*.o
 
 jsonWeatherPrediction: main/main.o main/jsonParse.o main/jsonImport.o main/runLoop.o

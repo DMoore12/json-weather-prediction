@@ -1,9 +1,6 @@
 #include <string>
 #include <sstream>
 
-//REMOVE
-#include <iostream>
-
 #include "jsonImport.h"
 #include "jsonParse.h"
 
@@ -31,6 +28,7 @@ float humidity[101];
 int dataSlot;
 
 //Count how many of a feature (character) there are in a string
+//To be used to count {'s to determine how many valid data points there are
 int featureCount(char featureToCount, std::string stringToCount) {
   int stringToCountLength = stringToCount.length();
   int returnValue = 0;
@@ -59,14 +57,9 @@ int jsonCountAndParse(std::string dataType, std::string stringToParse) {
 
 //Logic for finding dtaa...
   int findPos = stringToParse.find('}', pos);
-
-  std::cout << "DATA TYPE: " << dataType << std::endl;
-
   while(pos != findPos) {
     dataToSave.push_back(stringToParse[pos]);
     pos++;
-
-    std::cout << "DEBUG STRING: " << dataToSave << std::endl;
 
   }
 
