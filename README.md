@@ -1,7 +1,7 @@
 # Command Line Weather Prediction Service
 
 [![HitCount](http://hits.dwyl.com/{dmoore12}/{json-weather-prediction}.svg)](http://hits.dwyl.com/{dmoore12}/{json-weather-prediction})
-[![Build Status](https://travis-ci.org/DMoore12/json-weather-prediction.png?branch=master)](https://travis-ci.org/DMoore12/json-weather-prediction)
+[![Build Status](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)
 
 ---
 
