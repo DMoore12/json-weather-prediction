@@ -20,9 +20,7 @@ void inTextLoad() {
   //The executable is in '//Users//dawsonmoore//Documents//Coding//json-weather-prediction//main//'
   //We must go up one!
   char buf[255];
-  string toAdd;
   getcwd(buf, sizeof(buf));
-  toAdd = buf;
   cout << "The CWD is " << buf << endl;
   jsonTxt.open("weatherData.json");
     if(!jsonTxt)
