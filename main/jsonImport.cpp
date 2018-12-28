@@ -25,7 +25,7 @@ void inTextLoad() {
         return;
       }
   while(!jsonTxt.eof()){
-    getline (jsonTxt, jsonString[i]);
+    getline(jsonTxt, jsonString[i]);
     ++i;
   }
   jsonLineCount = i;
