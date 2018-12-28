@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <unistd.h>
+
 #include "jsonImport.h"
 
 using namespace std;
@@ -26,6 +27,12 @@ void inTextLoad() {
     if(!jsonTxt)
       {
         cout << "Could not load the file!" << endl;
+        cout << "Attempting to create a file to load!"  << endl;
+        inTextCreate();
+        jsonTxt.open("weatherData.json");
+        if(!jsonTxt) {
+          cout << "Could not create file!" <<endl;
+        }
         return;
       }
   while(!jsonTxt.eof()){
@@ -34,6 +41,14 @@ void inTextLoad() {
   }
   jsonLineCount = i;
   jsonTxt.close();
+
+  return;
+}
+
+void inTextCreate() {
+  ofstream jsonTxtOut;
+  jsonTxtOut.open("weatherData.json");
+  jsonTxtOut.close();
 
   return;
 }
