@@ -3,7 +3,7 @@
 
 #include <string>
 
-extern std::string jsonString[101];
+extern std::string jsonString[501];
 extern int jsonLineCount;
 
 void inTextLoad();

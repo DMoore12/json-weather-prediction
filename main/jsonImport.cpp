@@ -8,8 +8,9 @@
 using namespace std;
 
   //This string is set to the exact line count of weatherData.json... Remember, arrrays start at 0!
-  string jsonString[101];
+  string jsonString[501];
   int jsonLineCount;
+  int lineOverflowStop = 0;
   ifstream jsonTxt;
 
 //This function will give (line by line) each line of the .JSON file
@@ -35,8 +36,15 @@ void inTextLoad() {
         }
         return;
       }
+
   while(!jsonTxt.eof()){
     getline(jsonTxt, jsonString[i]);
+    if(i >= 500) {
+      cout << "There are too many data points in weatherData.json!" << endl;
+      jsonLineCount = i;
+      jsonTxt.close();
+      return;
+    }
     ++i;
   }
   jsonLineCount = i;
