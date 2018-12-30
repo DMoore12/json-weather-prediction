@@ -55,7 +55,7 @@ int jsonCountAndParse(std::string dataType, std::string stringToParse) {
     returnCount++;
     pos = pos + 16;
 
-//Logic for finding dtaa...
+//Logic for finding data...
   int findPos = stringToParse.find('}', pos);
   while(pos != findPos) {
     dataToSave.push_back(stringToParse[pos]);
