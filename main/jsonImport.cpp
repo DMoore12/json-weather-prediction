@@ -38,13 +38,13 @@ void inTextLoad() {
       }
 
   while(!jsonTxt.eof()){
-    getline(jsonTxt, jsonString[i]);
     if(i >= 500) {
       cout << "There are too many data points in weatherData.json!" << endl;
       jsonLineCount = i;
       jsonTxt.close();
       return;
     }
+    getline(jsonTxt, jsonString[i]);
     ++i;
   }
   jsonLineCount = i;
