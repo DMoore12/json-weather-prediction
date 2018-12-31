@@ -1,5 +1,7 @@
-#include <iostream>
 #include <string>
+
+//REMOVE
+#include <iostream>
 
 #include "jsonImport.h"
 #include "jsonParse.h"
@@ -17,9 +19,6 @@ int linePos;
 
 void runLoop() {
 
-  //***REMEMBER TO REMOVE DEBUG CONSOLE PRINTS FOR BETTER PERFORMANCE!!!***
-
-
   inTextLoad();
 
   //Set all vars to 0 to stop overflow
@@ -34,7 +33,6 @@ void runLoop() {
     stringToSend = jsonString[i];
     dataTypeCount = dataTypeCount + featureCount('{', stringToSend);
   }
-  cout << "There are " << dataTypeCount << " data points!" << endl;
 
   //Starline logic
   if(jsonLineCount > 150) {
@@ -77,28 +75,15 @@ void runLoop() {
     }
     linePos++;
   }
-
-  cout << "There are " << dataPointCount[0] << " wind data points" << endl;
-  cout << "There are " << dataPointCount[1] << " temperature data points" << endl;
-  cout << "There are " << dataPointCount[2] << " humidity data points" << endl;
-  for(size_t i = 0; i <= dataPointCount[0] - 1; i++) {
-    cout << "Wind data point " << i << " is " << wind[i] << endl;
-  }
-  for(size_t i = 0; i <= dataPointCount[1] - 1; i++) {
-    cout << "Temperature data point " << i << " is " << temp[i] << endl;
-  }
-  for(size_t i = 0; i <= dataPointCount[2] - 1; i++) {
-    cout << "Humidity data point " << i << " is " << humidity[i] << endl;
-   }
 }
 
 void predictThunderstorm() {
   float windDev, tempDev, humDev;
   windDev = stdDev("wind", dataPointCount[0]);
-  cout << "The standard deviation of the wind data is " << windDev << endl;
+  cout << "windDev = " << windDev << "!" << endl;
   tempDev = stdDev("temp", dataPointCount[1]);
-  cout << "The standard deviation of the temp data is " << tempDev << endl;
+  cout << "tempDev = " << tempDev << "!" << endl;
   humDev = stdDev("humidity", dataPointCount[2]);
-  cout << "The standard deviation of the humidity data is " << humDev << endl;
+  cout << "humDev = " << humDev << "!" << endl;
   return;
 }

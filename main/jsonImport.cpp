@@ -1,4 +1,3 @@
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <unistd.h>
@@ -21,25 +20,16 @@ void inTextLoad() {
 
   //The executable is in '//Users//dawsonmoore//Documents//Coding//json-weather-prediction//main//'
   //We must go up one!
-  char buf[255];
-  getcwd(buf, sizeof(buf));
-  cout << "The CWD is " << buf << endl;
   jsonTxt.open("weatherData.json");
     if(!jsonTxt)
       {
-        cout << "Could not load the file!" << endl;
-        cout << "Attempting to create a file to load!"  << endl;
         inTextCreate();
         jsonTxt.open("weatherData.json");
-        if(!jsonTxt) {
-          cout << "Could not create file!" <<endl;
-        }
         return;
       }
 
   while(!jsonTxt.eof()){
     if(i >= 500) {
-      cout << "There are too many data points in weatherData.json!" << endl;
       jsonLineCount = i;
       jsonTxt.close();
       return;

@@ -4,7 +4,6 @@
 #include "jsonImport.h"
 #include "jsonParse.h"
 
-
 /*
 What we have:
   A lot of strings in jsonString[169] (168 strings to be exact!)
