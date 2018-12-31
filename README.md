@@ -1,6 +1,5 @@
 # Command Line Adverse Weather Prediction Service
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f369ee88911048469f4f29f941fb1e68)](https://app.codacy.com/app/DMoore12/json-weather-prediction?utm_source=github.com&utm_medium=referral&utm_content=DMoore12/json-weather-prediction&utm_campaign=Badge_Grade_Settings)
 [![HitCount](http://hits.dwyl.com/{dmoore12}/{json-weather-prediction}.svg)](http://hits.dwyl.com/{dmoore12}/{json-weather-prediction})
 [![Build Status](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/626cbebaed784901a96dc44901006708)](https://www.codacy.com/app/DMoore12/json-weather-prediction?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DMoore12/json-weather-prediction&amp;utm_campaign=Badge_Grade)
@@ -9,20 +8,20 @@
 
 **Project Timeline:**
 
-- [x] Project is buildable
-- [x] Project can load .json files
-- [x] Project can parse .json files for use
-- [ ] Project works as advertised
-- [x] Setup basic Travis
-- [ ] Setup Travis testing
-- [ ] Documentation provided
+-   [x] Project is buildable
+-   [x] Project can load .json files
+-   [x] Project can parse .json files for use
+-   [ ] Project works as advertised
+-   [x] Setup basic Travis
+-   [ ] Setup Travis testing
+-   [ ] Documentation provided
 
 **Extra Changes:**
 
-- [ ] Convert arrays to vectors
-- [ ] Remove data file size limits
-- [ ] Convert to database use rather than .json
-- [ ] Add location bias
+-   [ ] Convert arrays to vectors
+-   [ ] Remove data file size limits
+-   [ ] Convert to database use rather than .json
+-   [ ] Add location bias
 
 json-weather-prediction is an application that will intake a .json file and output probability of a thunderstorm based on the data inside. It will be designed for use on a Raspberry Pi terminal, but will hopefully be available for more than just this use. It's initial production was designed for use with the [HyperStation.](https://github.com/russelltg/weatherstation) However, this project does not actually save .json files, so future implementation might shift away from reading .json files.
 
