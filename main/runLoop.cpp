@@ -4,6 +4,8 @@
 #include "jsonImport.h"
 #include "jsonParse.h"
 
+float stdDev(std::string dataType, int dataPointCount);
+
 using namespace std;
 
 string stringToSend;
@@ -53,7 +55,7 @@ void runLoop() {
     }
     linePos++;
   }
-  linePos = startLine;
+  linePos = startLine ;
   dataSlot = 0;
   while(linePos <= jsonLineCount) {
     stringToSend = jsonString[linePos];
@@ -79,19 +81,24 @@ void runLoop() {
   cout << "There are " << dataPointCount[0] << " wind data points" << endl;
   cout << "There are " << dataPointCount[1] << " temperature data points" << endl;
   cout << "There are " << dataPointCount[2] << " humidity data points" << endl;
-  for(size_t i = 0; i <= 10; i++) {
+  for(size_t i = 0; i <= dataPointCount[0] - 1; i++) {
     cout << "Wind data point " << i << " is " << wind[i] << endl;
   }
-  for(size_t i = 0; i<=10; i++) {
+  for(size_t i = 0; i <= dataPointCount[1] - 1; i++) {
     cout << "Temperature data point " << i << " is " << temp[i] << endl;
   }
-  for(size_t i = 0; i<=10; i++) {
+  for(size_t i = 0; i <= dataPointCount[2] - 1; i++) {
     cout << "Humidity data point " << i << " is " << humidity[i] << endl;
    }
 }
 
 void predictThunderstorm() {
-  int i = 0;
-  i = i + 1;
+  float windDev, tempDev, humDev;
+  windDev = stdDev("wind", dataPointCount[0]);
+  cout << "The standard deviation of the wind data is " << windDev << endl;
+  tempDev = stdDev("temp", dataPointCount[1]);
+  cout << "The standard deviation of the temp data is " << tempDev << endl;
+  humDev = stdDev("humidity", dataPointCount[2]);
+  cout << "The standard deviation of the humidity data is " << humDev << endl;
   return;
 }
