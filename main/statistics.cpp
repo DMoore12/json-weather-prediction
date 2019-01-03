@@ -6,7 +6,7 @@ float valMinusMean[101] = {0};
 
 float simpleMean(int dataPointCount) {
   float add = 0;
-  for(size_t i = 0; i < dataPointCount; i++) {
+  for(int i = 0; i < dataPointCount; i++) {
     add = add + valMinusMean[i];
   }
   return add / (dataPointCount - 1);
@@ -24,21 +24,21 @@ float mean(std::string dataType, int dataPointCount, bool loadVals) {
   //Compute the mean of the data type
   //Also, put the value into another variable for manipulation later
   if(dataType == "wind") {
-    for(size_t i = 0; i < dataPointCount; i++) {
+    for(int i = 0; i < dataPointCount; i++) {
       add = add + wind[i];
       if(loadVals == true) {
       valMinusMean[i] = wind[i];
       }
     }
   } else if(dataType == "temp") {
-    for(size_t i = 0; i < dataPointCount; i++) {
+    for(int i = 0; i < dataPointCount; i++) {
       add = add + temp[i];
       if(loadVals == true) {
       valMinusMean[i] = temp[i];
       }
     }
   } else {
-    for(size_t i = 0; i < dataPointCount; i++) {
+    for(int i = 0; i < dataPointCount; i++) {
       add = add + humidity[i];
       if(loadVals == true) {
       valMinusMean[i] = humidity[i];
@@ -50,7 +50,7 @@ float mean(std::string dataType, int dataPointCount, bool loadVals) {
 }
 
 void stdDevSubByMean(int dataPointCount, float currentMean) {
-  for(size_t i = 0; i < dataPointCount; i++) {
+  for(int i = 0; i < dataPointCount; i++) {
     valMinusMean[i] = valMinusMean[i] - currentMean;
     valMinusMean[i] = valMinusMean[i] * valMinusMean[i];
   }

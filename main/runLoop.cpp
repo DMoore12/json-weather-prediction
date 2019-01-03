@@ -32,7 +32,7 @@ void runLoop() {
   countResult = 0;
 
   //Start the counting...
-  for (size_t i = 0; i <= jsonLineCount; i++) {
+  for (int i = 0; i <= jsonLineCount; i++) {
     stringToSend = jsonString[i];
     dataTypeCount = dataTypeCount + featureCount('{', stringToSend);
   }
@@ -83,7 +83,6 @@ void runLoop() {
 void predictThunderstorm() {
   float windDev, tempDev, humDev, windAve, tempAve, humAve; 
   float dewPoint = 0;
-  bool dewPointLikely = true;
   int windCategory;
   float tsLikelihood;
   windDev = stdDev("wind", dataPointCount[0]);
