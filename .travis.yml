@@ -11,5 +11,3 @@ notifications:
 script:
   - make
   - cd main
-  - ./jsonWeatherPrediction
-
