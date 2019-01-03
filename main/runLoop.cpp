@@ -6,7 +6,10 @@
 #include "jsonImport.h"
 #include "jsonParse.h"
 
+float mean(std::string dataType, int dataPointCount, bool loadVals);
 float stdDev(std::string dataType, int dataPointCount);
+float dewpointCalc(float averageHumidity, float averageTemperature);
+int windCategorize(float averageWind, float windDeviation);
 
 using namespace std;
 
@@ -78,12 +81,70 @@ void runLoop() {
 }
 
 void predictThunderstorm() {
-  float windDev, tempDev, humDev;
+  float windDev, tempDev, humDev, windAve, tempAve, humAve; 
+  float dewPoint = 0;
+  bool dewPointLikely = true;
+  int windCategory;
+  float tsLikelihood;
   windDev = stdDev("wind", dataPointCount[0]);
   cout << "windDev = " << windDev << "!" << endl;
   tempDev = stdDev("temp", dataPointCount[1]);
   cout << "tempDev = " << tempDev << "!" << endl;
   humDev = stdDev("humidity", dataPointCount[2]);
   cout << "humDev = " << humDev << "!" << endl;
+  windAve = mean("wind", dataPointCount[0], false);
+  cout << "Wind average: " << windAve << endl; 
+  tempAve = mean("temp", dataPointCount[1], false);
+  cout << "Temp average: " << tempAve << endl;
+  humAve = mean("humidity", dataPointCount[2], false);
+  cout << "Humidity average: " << humAve << endl;
+  if(humAve >= 50) {
+  dewPoint = dewpointCalc(humAve, tempAve);
+  cout << "The dewpoint is: " << dewPoint << endl;
+  dewPointLikely = true;
+  } else {
+    cout << "The humidity is too low to have a thunderstorm!" << endl;
+    dewPointLikely = false;
+  }
+  windCategory = windCategorize(windAve, windDev);
+  cout << "The current wind category is: " << windCategory << endl;
+  float windScore, temperatureScore, humidityScore, dewpointScore = 0;
+  if(windCategory <= 4) {
+    windScore = 0;
+  } else if(windCategory > 17) {
+    windScore = ( (windCategory - 13) * 2.604166667) + 5;
+  } else {
+    windScore =  windCategory * 2.604166667;
+  }
+  if(tempAve >= 13) {
+    temperatureScore = 6.25;
+  } else if(tempAve < 0) {
+    temperatureScore = 0;
+  } else {
+    temperatureScore = tempAve * 0.48076923076;
+  }
+  if(humAve >= 80) {
+    humidityScore = 31.25;
+  } else if(humAve <=20) {
+    humidityScore = 0;
+  } else {
+    humidityScore = (humAve - 20) * 0.52083333333;
+  }
+  if(dewPoint >= 18.3333) {
+    dewpointScore = 31.25;
+  } else if(dewPoint >= 12.7778) {
+    dewpointScore = ( (dewPoint - 12.7778) * 4.21879218792) + 23.4375;
+  } else if(dewPoint <= 0) {
+    dewpointScore = 0;
+  } else {
+    dewpointScore = dewPoint * 0.83333333333;
+  }
+
+  tsLikelihood = windScore + temperatureScore + humidityScore + dewpointScore;
+  cout << "The wind score is " << windScore << endl;
+  cout << "The temperature score is " << temperatureScore << endl;
+  cout << "The humidity score is " << humidityScore << endl;
+  cout << "The dewpoint score is " << dewpointScore << endl;
+  cout << "The likelihood of a thunderstorm is " << tsLikelihood << "%" << endl << endl << endl;
   return;
 }

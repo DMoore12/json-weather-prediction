@@ -7,9 +7,9 @@ void predictThunderstorm();
 //Main Function
 int main() {
 
-//while(1) {
+while(1) {
   runLoop();
   predictThunderstorm();
-//  }
+  }
   return 0;
 }
