@@ -100,10 +100,8 @@ void predictThunderstorm() {
   if(humAve >= 50) {
   dewPoint = dewpointCalc(humAve, tempAve);
   cout << "The dewpoint is: " << dewPoint << endl;
-  dewPointLikely = true;
   } else {
     cout << "The humidity is too low to have a thunderstorm!" << endl;
-    dewPointLikely = false;
   }
   windCategory = windCategorize(windAve, windDev);
   cout << "The current wind category is: " << windCategory << endl;
