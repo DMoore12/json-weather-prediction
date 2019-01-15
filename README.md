@@ -1,6 +1,6 @@
 # Command Line Adverse Weather Prediction Service
 
-[![Build Status](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)
+[![Build Status](https://travis-ci.org/DMoore12/json-weather-prediction.svg?branch=master)](https://travis-ci.org/DMoore12/json-weather-prediction)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/626cbebaed784901a96dc44901006708)](https://www.codacy.com/app/DMoore12/json-weather-prediction?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DMoore12/json-weather-prediction&amp;utm_campaign=Badge_Grade)
 [![](https://img.shields.io/github/license/DMoore12/json-weather-prediction.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Testing Badge](https://img.shields.io/badge/-algorithm%20testing%20incomplete-yellow.svg?logo=github)]()
